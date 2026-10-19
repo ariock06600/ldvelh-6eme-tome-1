@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Groupe Bouclier Generator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    #logo-container {
+      width: 1024px;
+      height: 1024px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="logo-container">
+    <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Vintage parchment paper filter & textures -->
+        <radialGradient id="parchmentLight" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="#f5e7c1" />
+          <stop offset="45%" stop-color="#eed8a1" />
+          <stop offset="75%" stop-color="#d4b26f" />
+          <stop offset="90%" stop-color="#b68945" />
+          <stop offset="97%" stop-color="#7a5120" />
+          <stop offset="100%" stop-color="#3d2208" />
+        </radialGradient>
+
+        <linearGradient id="goldRibbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fff2ad" />
+          <stop offset="25%" stop-color="#e5b842" />
+          <stop offset="50%" stop-color="#b88320" />
+          <stop offset="75%" stop-color="#eec75d" />
+          <stop offset="100%" stop-color="#8c5811" />
+        </linearGradient>
+
+        <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffe994" />
+          <stop offset="35%" stop-color="#d4af37" />
+          <stop offset="70%" stop-color="#916215" />
+          <stop offset="100%" stop-color="#4a3007" />
+        </linearGradient>
+
+        <linearGradient id="darkRibbonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#18263e" />
+          <stop offset="40%" stop-color="#0e1828" />
+          <stop offset="70%" stop-color="#142236" />
+          <stop offset="100%" stop-color="#090f1a" />
+        </linearGradient>
+
+        <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#d9381e" />
+          <stop offset="40%" stop-color="#f37318" />
+          <stop offset="75%" stop-color="#ffb703" />
+          <stop offset="100%" stop-color="#fff176" />
+        </linearGradient>
+
+        <!-- Drop shadows -->
+        <filter id="heavyShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity="0.5" />
+        </filter>
+        <filter id="crispShadow" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.6" />
+        </filter>
+        <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+
+      <!-- 1. PARCHMENT BACKGROUND WITH BURNED DECKLED BORDERS -->
+      <!-- Burnt outer deckled background -->
+      <path d="M 45,35 
+               C 120,42 220,25 350,38 C 480,28 620,45 750,32 C 860,42 940,30 978,48
+               C 995,150 965,280 985,420 C 960,560 988,710 970,850 C 985,920 950,965 920,980
+               C 810,960 690,985 540,970 C 410,988 270,965 140,982 C 70,968 45,925 35,840
+               C 48,700 25,550 42,400 C 28,260 52,140 45,35 Z"
+            fill="url(#parchmentLight)"
+            stroke="#261403"
+            stroke-width="5"
+            filter="url(#heavyShadow)" />
+
+      <!-- Burnt border shading & charcoal raggedness -->
+      <path d="M 45,35 C 120,42 220,25 350,38 C 480,28 620,45 750,32 C 860,42 940,30 978,48
+               C 995,150 965,280 985,420 C 960,560 988,710 970,850 C 985,920 950,965 920,980
+               C 810,960 690,985 540,970 C 410,988 270,965 140,982 C 70,968 45,925 35,840
+               C 48,700 25,550 42,400 C 28,260 52,140 45,35 Z"
+            fill="none"
+            stroke="#452605"
+            stroke-width="14"
+            opacity="0.35" />
+
+      <!-- Vintage paper stains, folds and creases -->
+      <g opacity="0.18" stroke="#3d2105" stroke-width="1.5" fill="none">
+        <path d="M 80,120 Q 300,180 500,140 T 940,160" />
+        <path d="M 60,350 Q 280,310 520,360 T 960,320" />
+        <path d="M 70,720 Q 340,780 600,730 T 930,760" />
+        <path d="M 220,60 Q 260,400 240,750 T 260,940" />
+        <path d="M 780,60 Q 740,400 760,750 T 740,940" />
+        <!-- Small age spots -->
+        <circle cx="160" cy="220" r="16" fill="#3d2105" />
+        <circle cx="850" cy="280" r="22" fill="#3d2105" />
+        <circle cx="190" cy="800" r="28" fill="#3d2105" />
+        <circle cx="830" cy="780" r="18" fill="#3d2105" />
+      </g>
+
+      <!-- 2. CENTRAL BAROQUE MANTLING (Rich acanthus leaves in gold and black) -->
+      <g filter="url(#heavyShadow)">
+        <!-- Black base / under-mantling -->
+        <path d="M 512,420
+                 C 400,380 320,320 280,240 C 240,300 210,380 260,460 C 220,440 180,480 190,560
+                 C 170,550 140,600 170,680 C 140,690 150,750 200,810 C 240,840 270,790 280,750
+                 C 290,700 320,660 350,650 C 330,600 350,550 380,520 Z"
+              fill="#111111" stroke="#333" stroke-width="2" />
+        <path d="M 512,420
+                 C 624,380 704,320 744,240 C 784,300 814,380 764,460 C 804,440 844,480 834,560
+                 C 854,550 884,600 854,680 C 884,690 874,750 824,810 C 784,840 754,790 744,750
+                 C 734,700 704,660 674,650 C 694,600 674,550 644,520 Z"
+              fill="#111111" stroke="#333" stroke-width="2" />
+
+        <!-- Gold flourishes & baroque leaf scrollwork -->
+        <!-- Left Gold Foliage -->
+        <path d="M 490,430
+                 C 380,400 310,340 270,270 C 290,340 310,400 360,440
+                 C 300,430 250,470 230,530 C 260,530 290,510 320,530
+                 C 250,560 210,620 220,700 C 250,670 280,660 300,680
+                 C 240,720 240,780 280,820 C 310,800 320,760 340,740
+                 C 350,710 380,680 410,680 C 400,620 420,580 450,550 Z"
+              fill="url(#goldLeafGrad)" stroke="#4a2e0a" stroke-width="3" />
+        
+        <!-- Right Gold Foliage -->
+        <path d="M 534,430
+                 C 644,400 714,340 754,270 C 734,340 714,400 664,440
+                 C 724,430 774,470 794,530 C 764,530 734,510 704,530
+                 C 774,560 814,620 804,700 C 774,670 744,660 724,680
+                 C 784,720 784,780 744,820 C 714,800 704,760 684,740
+                 C 674,710 644,680 614,680 C 624,620 604,580 574,550 Z"
+              fill="url(#goldLeafGrad)" stroke="#4a2e0a" stroke-width="3" />
+      </g>
+
+      <!-- 3. CENTRAL SHIELD & DOMINICAN CROSS FLEURY -->
+      <g transform="translate(512, 630)" filter="url(#heavyShadow)">
+        <!-- Heavy Baroque Golden Frame of Shield -->
+        <path d="M -160,-170 
+                 C -120,-185 120,-185 160,-170
+                 C 190,-160 210,-90 200,-10
+                 C 195,80 180,160 120,225
+                 C 70,275 20,305 0,318
+                 C -20,305 -70,275 -120,225
+                 C -180,160 -195,80 -200,-10
+                 C -210,-90 -190,-160 -160,-170 Z"
+              fill="url(#goldRibbonGrad)"
+              stroke="#261704"
+              stroke-width="7" />
+
+        <!-- Outer frame ornate carved scrolls -->
+        <path d="M -145,-155 C -110,-170 110,-170 145,-155
+                 C 175,-145 190,-85 180,-10
+                 C 175,70 160,145 105,205
+                 C 60,250 15,278 0,290
+                 C -15,278 -60,250 -105,205
+                 C -160,145 -175,70 -180,-10
+                 C -190,-85 -175,-145 -145,-155 Z"
+              fill="#1a1104"
+              stroke="url(#goldLeafGrad)"
+              stroke-width="3.5" />
+
+        <!-- Inner Shield Field with Clip Path for Quartering -->
+        <clipPath id="innerShieldClip">
+          <path d="M -130,-145 C -95,-158 95,-158 130,-145
+                   C 155,-135 170,-80 162,-10
+                   C 158,60 142,130 95,185
+                   C 55,225 12,250 0,260
+                   C -12,250 -55,225 -95,185
+                   C -142,130 -158,60 -162,-10
+                   C -170,-80 -155,-135 -130,-145 Z" />
+        </clipPath>
+
+        <g clip-path="url(#innerShieldClip)">
+          <!-- Quarter 1 (Top-Left): Black (Sable) -->
+          <rect x="-170" y="-170" width="170" height="170" fill="#0d0d0d" />
+          <!-- Quarter 2 (Top-Right): Argent (Off-White/Silver) -->
+          <rect x="0" y="-170" width="170" height="170" fill="#f4f5f6" />
+          <!-- Quarter 3 (Bottom-Left): Argent (Off-White/Silver) -->
+          <rect x="-170" y="0" width="170" height="270" fill="#f4f5f6" />
+          <!-- Quarter 4 (Bottom-Right): Black (Sable) -->
+          <rect x="0" y="0" width="170" height="270" fill="#0d0d0d" />
+
+          <!-- Cross fleury shadow behind -->
+          <path d="M -14,-110 L 14,-110 L 14,-30 L 95,-30 L 95,-14 L 110,-14 L 110,14 L 95,14 L 95,30 L 14,30 L 14,140 L -14,140 L -14,30 L -95,30 L -95,14 L -110,14 L -110,-14 L -95,-14 L -95,-30 L -14,-30 Z"
+                fill="#000" opacity="0.4" filter="url(#crispShadow)" />
+
+          <!-- PROMINENT DOMINICAN CROSS FLEURY (Croix Florencée / Fleurdelisée) -->
+          <!-- Gold Border Base -->
+          <path d="M -12,-115 L 12,-115 L 12,-26 L 98,-26 L 98,-12 L 118,-12 L 118,12 L 98,12 L 98,26 L 12,26 L 12,145 L -12,145 L -12,26 L -98,26 L -98,12 L -118,12 L -118,-12 L -98,-12 L -98,-26 L -12,-26 Z"
+                fill="url(#goldRibbonGrad)" stroke="#3d2605" stroke-width="3" />
+
+          <!-- White 3D Relief Body -->
+          <path d="M -9,-112 L 9,-112 L 9,-23 L 95,-23 L 95,-9 L 115,-9 L 115,9 L 95,9 L 95,23 L 9,23 L 9,142 L -9,142 L -9,23 L -95,23 L -95,9 L -115,9 L -115,-9 L -95,-9 L -95,-23 L -9,-23 Z"
+                fill="#ffffff" stroke="#c9cbcf" stroke-width="1.5" />
+
+          <!-- Cross Fleur-de-lis terminal buds -->
+          <!-- Top terminal -->
+          <circle cx="0" cy="-115" r="9" fill="url(#goldRibbonGrad)" stroke="#3d2605" stroke-width="1.5" />
+          <path d="M -15,-115 Q 0,-135 15,-115 Z" fill="#ffffff" stroke="url(#goldRibbonGrad)" stroke-width="2" />
+          <!-- Bottom terminal -->
+          <circle cx="0" cy="145" r="9" fill="url(#goldRibbonGrad)" stroke="#3d2605" stroke-width="1.5" />
+          <path d="M -15,145 Q 0,165 15,145 Z" fill="#ffffff" stroke="url(#goldRibbonGrad)" stroke-width="2" />
+          <!-- Left terminal -->
+          <circle cx="-118" cy="0" r="9" fill="url(#goldRibbonGrad)" stroke="#3d2605" stroke-width="1.5" />
+          <path d="M -118,-15 Q -138,0 -118,15 Z" fill="#ffffff" stroke="url(#goldRibbonGrad)" stroke-width="2" />
+          <!-- Right terminal -->
+          <circle cx="118" cy="0" r="9" fill="url(#goldRibbonGrad)" stroke="#3d2605" stroke-width="1.5" />
+          <path d="M 118,-15 Q 138,0 118,15 Z" fill="#ffffff" stroke="url(#goldRibbonGrad)" stroke-width="2" />
+
+          <!-- Faceted central 3D bevel lines on the cross -->
+          <line x1="0" y1="-115" x2="0" y2="145" stroke="#e0e0e0" stroke-width="2" />
+          <line x1="-118" y1="0" x2="118" y2="0" stroke="#e0e0e0" stroke-width="2" />
+        </g>
+      </g>
+
+      <!-- 4. MEDIEVAL KNIGHT HELMET (Between dog and shield) -->
+      <g transform="translate(512, 435)" filter="url(#heavyShadow)">
+        <!-- Helmet Bowl & Visor in burnished gold and steel -->
+        <path d="M -45,-30 
+                 C -45,-60 45,-60 45,-30 
+                 C 45,-5 35,25 0,38 
+                 C -35,25 -45,-5 -45,-30 Z"
+              fill="url(#goldRibbonGrad)"
+              stroke="#2c1a04"
+              stroke-width="4.5" />
+
+        <!-- Visor slits / Grille -->
+        <path d="M -25,-12 L 25,-12 L 18,12 L -18,12 Z" fill="#111827" stroke="#3d2605" stroke-width="2" />
+        <line x1="-15" y1="-4" x2="15" y2="-4" stroke="url(#goldRibbonGrad)" stroke-width="2" />
+        <line x1="-12" y1="4" x2="12" y2="4" stroke="url(#goldRibbonGrad)" stroke-width="2" />
+
+        <!-- Gorget / Neckplate with gold trim -->
+        <path d="M -30,22 Q 0,42 30,22 L 25,36 Q 0,50 -25,36 Z" fill="url(#goldLeafGrad)" stroke="#2c1a04" stroke-width="2" />
+      </g>
+
+      <!-- 5. CREST: TORSE, DOMINICAN HOUND & BLAZING TORCH -->
+      <g transform="translate(512, 335)" filter="url(#heavyShadow)">
+        <!-- Torse / Crest Wreath (alternating gold and dark cords) -->
+        <g transform="translate(0, 50)">
+          <rect x="-65" y="-10" width="130" height="18" rx="7" fill="url(#goldRibbonGrad)" stroke="#3d2505" stroke-width="3" />
+          <!-- Cord stripes -->
+          <line x1="-42" y1="-10" x2="-32" y2="8" stroke="#111" stroke-width="5" />
+          <line x1="-15" y1="-10" x2="-5" y2="8" stroke="#111" stroke-width="5" />
+          <line x1="15" y1="-10" x2="25" y2="8" stroke="#111" stroke-width="5" />
+          <line x1="42" y1="-10" x2="52" y2="8" stroke="#111" stroke-width="5" />
+        </g>
+
+        <!-- Golden Heraldic Hound (Domini Canes - Facing Left) -->
+        <!-- Tail -->
+        <path d="M 45,5 Q 85,-15 95,-45 Q 98,-15 70,25 Q 55,20 45,5 Z"
+              fill="url(#goldLeafGrad)" stroke="#382104" stroke-width="2.5" />
+
+        <!-- Torso, Legs & Paws -->
+        <path d="M -50,-5 
+                 C -40,-35 20,-35 50,-5 
+                 C 65,15 55,42 42,48 L 30,48 L 32,20 
+                 C 10,28 -15,18 -25,10 
+                 L -20,48 L -35,48 L -32,18 
+                 C -45,15 -55,8 -50,-5 Z"
+              fill="url(#goldRibbonGrad)" stroke="#382104" stroke-width="3" />
+
+        <!-- Left Foreleg raised holding torch -->
+        <path d="M -40,-8 C -55,-18 -75,-25 -85,-10 C -82,-5 -70,-8 -58,5 Z"
+              fill="url(#goldRibbonGrad)" stroke="#382104" stroke-width="2.5" />
+
+        <!-- Hound Head, Muzzle & Ears -->
+        <path d="M -45,-30 
+                 L -65,-42 L -80,-35 L -72,-22 L -50,-15 Z"
+              fill="url(#goldRibbonGrad)" stroke="#382104" stroke-width="2.5" />
+        <polygon points="-55,-40 -50,-62 -38,-42" fill="url(#goldLeafGrad)" stroke="#382104" stroke-width="2" />
+        <!-- Eye and mouth detail -->
+        <circle cx="-62" cy="-33" r="2.5" fill="#1a1104" />
+
+        <!-- Blazing Torch -->
+        <!-- Torch handle -->
+        <g transform="translate(-85, -25) rotate(-22)">
+          <rect x="-8" y="-15" width="14" height="65" rx="3" fill="url(#goldLeafGrad)" stroke="#2b1703" stroke-width="2.5" />
+          <polygon points="-12,-15 18,-15 10,-30 -4,-30" fill="url(#goldRibbonGrad)" stroke="#2b1703" stroke-width="2" />
+          <!-- Fiery Flames leaping from torch -->
+          <path d="M 3,-30 
+                   C -20,-55 5,-80 -5,-110 
+                   C 25,-85 10,-60 28,-45 
+                   C 18,-42 12,-35 3,-30 Z"
+                fill="url(#flameGrad)"
+                stroke="#8c2500"
+                stroke-width="2"
+                filter="url(#goldGlow)" />
+          <path d="M 3,-35 C -5,-50 12,-65 5,-85 C 18,-68 12,-50 15,-40 Z" fill="#fff9c4" />
+        </g>
+      </g>
+
+      <!-- 6. EIGHT-POINTED STAR OF LIGHT (Above the Hound) -->
+      <g transform="translate(512, 215)" filter="url(#goldGlow)">
+        <!-- Radiant Star of St Dominic -->
+        <polygon points="0,-36 9,-10 36,0 9,10 0,36 -9,10 -36,0 -9,-10"
+                 fill="url(#goldRibbonGrad)" stroke="#452705" stroke-width="2.5" />
+        <polygon points="0,-24 6,-6 24,0 6,6 0,24 -6,6 -24,0 -6,-6"
+                 fill="#fffbe6" />
+        <polygon points="-24,-24 -6,-8 -8,-24 0,-10 8,-24 6,-8 24,-24 10,0 24,-8"
+                 fill="url(#goldLeafGrad)" opacity="0.6" />
+      </g>
+
+      <!-- 7. TOP BANNER RIBBON : GROUPE BOUCLIER -->
+      <g filter="url(#heavyShadow)">
+        <!-- Left Banner Fold & Tails -->
+        <path d="M 240,185 C 180,140 190,95 240,75 L 310,105 L 290,195 Z"
+              fill="#09111c" stroke="url(#goldRibbonGrad)" stroke-width="3" />
+        <path d="M 195,120 L 150,85 L 240,75 L 220,135 Z"
+              fill="url(#goldLeafGrad)" stroke="#2e1903" stroke-width="2" />
+
+        <!-- Right Banner Fold & Tails -->
+        <path d="M 784,185 C 844,140 834,95 784,75 L 714,105 L 734,195 Z"
+              fill="#09111c" stroke="url(#goldRibbonGrad)" stroke-width="3" />
+        <path d="M 829,120 L 874,85 L 784,75 L 804,135 Z"
+              fill="url(#goldLeafGrad)" stroke="#2e1903" stroke-width="2" />
+
+        <!-- Main Arched Dark Navy Ribbon -->
+        <path d="M 240,185 
+                 C 360,110 664,110 784,185 
+                 C 750,225 680,180 512,180 
+                 C 344,180 274,225 240,185 Z"
+              fill="url(#darkRibbonGrad)"
+              stroke="url(#goldRibbonGrad)"
+              stroke-width="5" />
+
+        <!-- Arched Text Guide Path (Generously wide so NO characters are ever clipped!) -->
+        <path id="topRibbonPath" d="M 230,172 C 360,112 664,112 794,172" fill="none" />
+
+        <!-- GROUPE BOUCLIER Text in rich gold serif -->
+        <text fill="url(#goldRibbonGrad)"
+              stroke="#2e1a04"
+              stroke-width="1.8"
+              font-family="'Times New Roman', 'Cinzel', Georgia, serif"
+              font-size="44"
+              font-weight="900"
+              letter-spacing="5"
+              text-anchor="middle">
+          <textPath href="#topRibbonPath" startOffset="50%">
+            GROUPE BOUCLIER
+          </textPath>
+        </text>
+      </g>
+
+      <!-- 8. BOTTOM BANNER RIBBON : LAUDARE, BENEDICERE, PRAEDICARE -->
+      <g filter="url(#heavyShadow)">
+        <!-- Bottom Banner Tails -->
+        <path d="M 260,780 C 190,750 200,700 240,680 L 320,705 L 290,785 Z"
+              fill="url(#goldLeafGrad)" stroke="#382104" stroke-width="2" />
+        <path d="M 764,780 C 834,750 824,700 784,680 L 704,705 L 734,785 Z"
+              fill="url(#goldLeafGrad)" stroke="#382104" stroke-width="2" />
+
+        <!-- Main Bottom Curved Ribbon -->
+        <path d="M 240,780
+                 C 360,860 664,860 784,780
+                 C 760,825 680,885 512,885
+                 C 344,885 264,825 240,780 Z"
+              fill="url(#goldRibbonGrad)"
+              stroke="#382104"
+              stroke-width="5" />
+
+        <!-- Inner Dark Navy Inlay Strip -->
+        <path d="M 255,785
+                 C 365,855 659,855 769,785
+                 C 750,815 675,865 512,865
+                 C 349,865 274,815 255,785 Z"
+              fill="url(#darkRibbonGrad)"
+              stroke="url(#goldLeafGrad)"
+              stroke-width="2" />
+
+        <!-- Bottom Curved Text Guide Path (Generously wide across the entire arc!) -->
+        <path id="bottomRibbonPath" d="M 235,800 C 360,875 664,875 789,800" fill="none" />
+
+        <!-- LAUDARE, BENEDICERE, PRAEDICARE Text -->
+        <text fill="url(#goldRibbonGrad)"
+              stroke="#1b1103"
+              stroke-width="1.2"
+              font-family="'Times New Roman', 'Cinzel', Georgia, serif"
+              font-size="25"
+              font-weight="900"
+              letter-spacing="3.5"
+              text-anchor="middle">
+          <textPath href="#bottomRibbonPath" startOffset="50%">
+            LAUDARE, BENEDICERE, PRAEDICARE
+          </textPath>
+        </text>
+
+        <!-- Ornate gold flourish below the motto -->
+        <g transform="translate(512, 915)">
+          <path d="M -80,-10 C -40,15 40,15 80,-10 C 50,25 -50,25 -80,-10 Z"
+                fill="url(#goldRibbonGrad)" stroke="#382104" stroke-width="2" />
+          <polygon points="0,5 -8,25 0,38 8,25" fill="url(#goldLeafGrad)" stroke="#382104" stroke-width="1.5" />
+        </g>
+      </g>
+    </svg>
+  </div>
+</body>
+</html>

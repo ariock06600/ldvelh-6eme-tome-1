@@ -1,0 +1,6 @@
+{
+  "name": "Groupe Bouclier - Prévention Harcèlement Scolaire (6e)",
+  "description": "Collection de livres dont vous êtes le héros pour la prévention du harcèlement et du climat scolaire en 6e. Créé par Pierre NDT, Groupe Bouclier.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

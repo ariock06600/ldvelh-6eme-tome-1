@@ -1,12 +1,16 @@
 import React from 'react';
 import type { PlayerStats } from '../types/story.ts';
-import { Heart, Users, ShieldAlert, Award, Compass } from 'lucide-react';
+import { Heart, Users, ShieldAlert, Award, Compass, Sparkles } from 'lucide-react';
 
 interface StatusHUDProps {
   stats: PlayerStats;
   currentStepId: number;
   currentLocation: string;
   actTitle: string;
+  protagonistName?: string;
+  tomeNumber?: number;
+  tomeShortTitle?: string;
+  themeColor?: 'cyan' | 'purple' | 'amber' | 'rose';
 }
 
 export const StatusHUD: React.FC<StatusHUDProps> = ({
@@ -14,14 +18,38 @@ export const StatusHUD: React.FC<StatusHUDProps> = ({
   currentStepId,
   currentLocation,
   actTitle,
+  protagonistName = 'Élior',
+  tomeNumber = 1,
+  tomeShortTitle,
+  themeColor = 'cyan',
 }) => {
+  const isPurple = themeColor === 'purple';
+  const isAmber = themeColor === 'amber';
+  const isRose = themeColor === 'rose';
+
+  const pulseColor = isRose ? 'bg-rose-400' : isAmber ? 'bg-amber-400' : isPurple ? 'bg-purple-400' : 'bg-cyan-400';
+  const textColor = isRose ? 'text-rose-300' : isAmber ? 'text-amber-300' : isPurple ? 'text-purple-300' : 'text-cyan-300';
+  const headerTextColor = isRose ? 'text-rose-400' : isAmber ? 'text-amber-400' : isPurple ? 'text-purple-400' : 'text-cyan-400';
+  const stepBadgeStyle = isRose
+    ? 'bg-rose-950/70 text-rose-300 border-rose-800/60'
+    : isAmber
+    ? 'bg-amber-950/70 text-amber-300 border-amber-800/60'
+    : isPurple
+    ? 'bg-purple-950/70 text-purple-300 border-purple-800/60'
+    : 'bg-cyan-950/70 text-cyan-300 border-cyan-800/60';
+
   return (
     <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 backdrop-blur-md shadow-lg shadow-black/40 text-slate-200 mb-6">
       <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
         <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-          <span className="text-xs uppercase tracking-wider text-cyan-400 font-semibold font-mono-code">
-            Terminal Biosensoriel Élior • Cycle Alpha
+          <div className={`w-2.5 h-2.5 rounded-full ${pulseColor} animate-pulse`} />
+          <span className={`text-xs uppercase tracking-wider ${headerTextColor} font-semibold font-mono-code flex items-center gap-1.5`}>
+            <span>Terminal Biosensoriel {protagonistName} • Cycle Alpha</span>
+            {tomeShortTitle && (
+              <span className="hidden sm:inline text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-normal">
+                {tomeShortTitle}
+              </span>
+            )}
           </span>
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-400">
@@ -30,7 +58,7 @@ export const StatusHUD: React.FC<StatusHUDProps> = ({
           <span className="text-slate-600">•</span>
           <span className="text-slate-400 text-xs hidden sm:inline">{actTitle}</span>
           <span className="text-slate-600">•</span>
-          <span className="bg-cyan-950/70 text-cyan-300 border border-cyan-800/60 px-2 py-0.5 rounded font-mono-code font-bold">
+          <span className={`px-2 py-0.5 rounded font-mono-code font-bold border ${stepBadgeStyle}`}>
             Étape {currentStepId} / 100
           </span>
         </div>
@@ -65,16 +93,24 @@ export const StatusHUD: React.FC<StatusHUDProps> = ({
         {/* Solidarité */}
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center justify-between text-xs">
-            <span className="flex items-center gap-1.5 text-cyan-300 font-medium">
-              <Users className="w-3.5 h-3.5 text-cyan-400" /> Solidarité des Pairs
+            <span className={`flex items-center gap-1.5 ${textColor} font-medium`}>
+              <Users className={`w-3.5 h-3.5 ${isRose ? 'text-rose-400' : isAmber ? 'text-amber-400' : isPurple ? 'text-purple-400' : 'text-cyan-400'}`} /> Solidarité des Pairs
             </span>
-            <span className="font-mono-code text-xs font-semibold text-cyan-400">
+            <span className={`font-mono-code text-xs font-semibold ${isRose ? 'text-rose-400' : isAmber ? 'text-amber-400' : isPurple ? 'text-purple-400' : 'text-cyan-400'}`}>
               {stats.solidarity}%
             </span>
           </div>
           <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-500 rounded-full"
+              className={`h-full transition-all duration-500 rounded-full ${
+                isRose
+                  ? 'bg-gradient-to-r from-rose-500 to-pink-500'
+                  : isAmber
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500'
+                  : isPurple
+                  ? 'bg-gradient-to-r from-purple-500 to-indigo-500'
+                  : 'bg-gradient-to-r from-cyan-500 to-blue-500'
+              }`}
               style={{ width: `${stats.solidarity}%` }}
             />
           </div>

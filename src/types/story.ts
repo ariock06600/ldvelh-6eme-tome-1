@@ -35,3 +35,23 @@ export interface PlayerStats {
   badges: string[];
   history: number[];
 }
+
+export type TomeId = 'tome-1' | 'tome-2' | 'tome-3' | 'tome-4';
+
+export interface TomeConfig {
+  id: TomeId;
+  number: 1 | 2 | 3 | 4;
+  title: string;
+  shortTitle: string;
+  subtitle: string;
+  theme: string;
+  station: string;
+  protagonist: string;
+  antagonist: string;
+  allies: string;
+  summary: string;
+  learningObjectives: string;
+  themeColor: 'cyan' | 'purple' | 'amber' | 'rose';
+  storageKey: string;
+  steps: Record<number, StoryStep>;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Shield, BookOpen, GraduationCap, Volume2, VolumeX, RotateCcw, Type } from 'lucide-react';
+import { Shield, BookOpen, GraduationCap, Volume2, VolumeX, RotateCcw, Type, Sparkles } from 'lucide-react';
 
-export type NavTab = 'home' | 'play' | 'pedagogy';
+export type NavTab = 'home' | 'tome-1' | 'tome-2' | 'tome-3' | 'tome-4' | 'pedagogy';
 
 interface NavbarProps {
   activeTab: NavTab;
@@ -50,31 +50,70 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs overflow-x-auto max-w-full">
           <button
             onClick={() => setActiveTab('home')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-medium transition-colors cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer shrink-0 ${
               activeTab === 'home'
                 ? 'bg-amber-600 text-white shadow-sm'
                 : 'text-slate-300 hover:text-white hover:bg-slate-800'
             }`}
           >
             <Shield className="w-3.5 h-3.5" />
-            <span>Accueil (Collection)</span>
+            <span>Accueil</span>
           </button>
 
           <button
-            onClick={() => setActiveTab('play')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-medium transition-colors cursor-pointer ${
-              activeTab === 'play'
-                ? 'bg-cyan-600 text-white shadow-sm'
+            onClick={() => setActiveTab('tome-1')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer shrink-0 ${
+              activeTab === 'tome-1'
+                ? 'bg-cyan-600 text-white shadow-sm font-semibold'
                 : 'text-slate-300 hover:text-white hover:bg-slate-800'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Tome 1 : Oxy-Kaelis</span>
+            <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Tome 1</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('tome-2')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer shrink-0 ${
+              activeTab === 'tome-2'
+                ? 'bg-purple-600 text-white shadow-sm font-semibold'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-purple-400" />
+            <span>Tome 2</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('tome-3')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer shrink-0 ${
+              activeTab === 'tome-3'
+                ? 'bg-amber-500 text-slate-950 shadow-sm font-bold'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+            <span>Tome 3</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('tome-4')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer shrink-0 ${
+              activeTab === 'tome-4'
+                ? 'bg-rose-600 text-white shadow-sm font-bold'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-rose-400" />
+            <span>Tome 4 : Cyber</span>
+            <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono-code uppercase font-bold">
+              Nouveau
+            </span>
           </button>
 
           <button
             onClick={() => setActiveTab('pedagogy')}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg font-medium transition-colors cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer shrink-0 ${
               activeTab === 'pedagogy'
                 ? 'bg-indigo-600 text-white shadow-sm'
                 : 'text-slate-300 hover:text-white hover:bg-slate-800'
@@ -110,22 +149,23 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={toggleSound}
-            title={soundEnabled ? "Couper le son" : "Activer les sons d'interface"}
+            title={soundEnabled ? "Désactiver les effets sonores" : "Activer les effets sonores"}
             className="p-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-slate-300 cursor-pointer"
-            aria-label={soundEnabled ? "Couper le son" : "Activer le son"}
           >
-            {soundEnabled ? <Volume2 className="w-4 h-4 text-cyan-400" /> : <VolumeX className="w-4 h-4 text-slate-500" />}
+            {soundEnabled ? (
+              <Volume2 className="w-4 h-4 text-emerald-400" />
+            ) : (
+              <VolumeX className="w-4 h-4 text-slate-500" />
+            )}
           </button>
 
-          {activeTab === 'play' && (
+          {(activeTab === 'tome-1' || activeTab === 'tome-2' || activeTab === 'tome-3') && (
             <button
               onClick={onReset}
-              title="Recommencer l'aventure au paragraphe 1"
-              className="px-2.5 py-1.5 bg-slate-900 hover:bg-rose-950/60 hover:border-rose-700/60 hover:text-rose-200 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 flex items-center gap-1.5 transition-colors cursor-pointer"
-              aria-label="Recommencer l'aventure"
+              title="Recommencer ce tome depuis le début"
+              className="p-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-slate-400 hover:text-amber-400 transition-colors cursor-pointer"
             >
-              <RotateCcw className="w-3.5 h-3.5 text-rose-400" />
-              <span className="hidden sm:inline">Recommencer</span>
+              <RotateCcw className="w-4 h-4" />
             </button>
           )}
         </div>

@@ -42,7 +42,7 @@ export const FullBookView: React.FC<FullBookViewProps> = ({
     const bookTitle = tomeConfig ? `${tomeConfig.title} - ${tomeConfig.subtitle}` : 'OXY-KAELIS : LE LIVRE DONT VOUS ÊTES LE HÉROS';
     let md = `# ${bookTitle}\n`;
     md += `*Station Orbitale Oxy-Kaelis • Fiction interactive de sensibilisation contre le harcèlement en milieu scolaire (Cycle 3 / 6e)*\n\n`;
-    md += `Collection : Groupe Bouclier (créé par Pierre NDT)\n\n`;
+    md += `Collection : Groupe Bouclier\n\n`;
     md += `---\n\n`;
 
     allSteps.forEach((s) => {

@@ -32,7 +32,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </h1>
 
             <p className="text-amber-200/90 text-sm sm:text-base font-serif italic max-w-xl">
-              « Laudare, Benedicere, Praedicare » • Protéger, écouter et éveiller les consciences face aux violences scolaires.
+              Protéger, écouter et éveiller les consciences face aux violences scolaires.
             </p>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
@@ -414,7 +414,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </h3>
         </div>
         <p className="text-xs sm:text-sm leading-relaxed text-slate-300">
-          Créée par <strong>Pierre NDT</strong>, cette série de 4 fictions interactives s'inspire directement des protocoles
+          Créée par le <strong>Groupe Bouclier</strong>, cette série de 4 fictions interactives s'inspire directement des protocoles
           éprouvés de médiation et de bienveillance scolaire (programme pHARe, méthode de la préoccupation partagée, médiation par les pairs, protocole 3018).
           La transposition spatiale sur <em>Oxy-Kaelis</em> permet aux collégiens de 6e de décortiquer les rôles (auteur, cible, témoin passif, tiers de confiance)
           sans culpabilisation, afin de développer des réflexes concrets de solidarité.

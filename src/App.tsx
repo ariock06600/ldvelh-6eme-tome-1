@@ -403,7 +403,7 @@ export default function App() {
             En cas de besoin, contactez gratuitement et anonymement le <strong className="text-cyan-400 font-mono-code">3018</strong> (Harcèlement et cyberharcèlement).
           </p>
           <p className="text-[11px] text-slate-400 font-medium tracking-wide">
-            créé par Pierre NDT groupe bouclier
+            Créé par le Groupe Bouclier
           </p>
         </div>
       </footer>
